@@ -2,3 +2,13 @@ scikit-learn
 uvicorn
 fastapi
 pydantic-settings
+pandas
+pytesseract
+shap
+pillow
+pdf2image
+python-multipart
+pydantic
+numpy
+matplotlib
+tqdm
