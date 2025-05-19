@@ -1,0 +1,224 @@
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #E1E9F0;
+  background: url('front.jpeg') center/cover no-repeat fixed;
+  height: 100vh;
+  overflow: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(10, 20, 30, 0.7);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+nav a {
+  margin-left: 1.5rem;
+  color: #E1E9F0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px #00E0FF;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+button#toggle-form {
+  padding: 0.8rem 2rem;
+  background: #1f79ce;
+  border: 2px solid #00E0FF;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background .3s;
+}
+
+button#toggle-form:hover {
+  background: #ffffff;
+}
+
+.form-section {
+  padding: 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(10, 20, 30, 0.8);
+  border-radius: 1rem;
+}
+
+.form-section.hidden { display: none; }
+
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #00E0FF;
+  border-radius: 0.3rem;
+  background: rgba(0,0,0,0.5);
+  color: #E1E9F0;
+}
+
+form button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.7rem;
+  background: #00E0FF;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.dashboard-section {
+  padding: 2rem;
+  background: rgba(10, 20, 30, 0.8);
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 1rem;
+}
+canvas {
+  margin: 2rem 0;
+  background: white;
+  border-radius: 0.5rem;
+}
+#metrics-box {
+  font-size: 1rem;
+  color: #E1E9F0;
+  margin-top: 1rem;
+}
+/* Añádelo a style.css */
+.chat-section {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: rgba(10,20,30,0.8);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #E1E9F0;
+}
+.chat-box {
+  height: 300px;
+  overflow-y: auto;
+  background: #0A1F33;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.chat-box .message {
+  margin-bottom: 0.5rem;
+}
+.chat-box .user { text-align: right; }
+.chat-box .bot  { text-align: left; }
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+.chat-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid #00E0FF;
+  background: rgba(0,0,0,0.5);
+  color: #E1E9F0;
+}
+.chat-input button {
+  padding: 0.5rem 1rem;
+  background: #00E0FF;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+/* Botones destacados */
+.btn-primary {
+  background: #00E0FF;
+  color: #0A1F33;
+  padding: 0.8rem 1.5rem;
+  border: none; border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-secondary {
+  background: #0A1F33;
+  color: #00E0FF;
+  padding: 0.6rem 1rem;
+  border: 2px solid #00E0FF; border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+/* Fields & grid */
+.field { margin-bottom: 1rem; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field label { display: block; font-size: 0.9rem; }
+.field input, .field select {
+  width: 100%; padding: 0.5rem; margin-top: 0.3rem;
+  border: 1px solid #00E0FF; border-radius: 0.3rem;
+  background: rgba(0,0,0,0.5); color: #E1E9F0;
+}
+.field small { color: #A0AEC0; font-size: 0.8rem; }
+
+/* Loader */
+#loading { text-align: center; margin: 1rem 0; }
+.spinner {
+  width: 40px; height: 40px; margin: 0 auto 0.5rem;
+  border: 4px solid rgba(0, 224, 255, 0.3);
+  border-top-color: #00E0FF; border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Result text */
+.result-text { font-size: 1.2rem; margin-bottom: 1rem; }
+.result-text.alert { color: #FF4C4C; }
+.result-text.ok { color: #4CAF50; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #E1E9F0;
+  background: url('front_fondo.png') center/cover no-repeat fixed;
+  height: 100vh;
+  overflow: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: -1;
+}

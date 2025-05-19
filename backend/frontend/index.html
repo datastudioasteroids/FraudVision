@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>FraudVision™ Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>FraudVision™ Demo</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Características</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero / Toggle Form -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Detecta Fraude en Segundos</h2>
+        <p>Introduce los datos de tu transacción y recibe un análisis inmediato.</p>
+        <button id="toggle-form" class="btn-primary">¡Comenzar!</button>
+      </div>
+    </section>
+
+    <!-- Formulario predictivo -->
+    <section class="form-section hidden" id="form-section">
+      <form id="tx-form">
+        <div class="field">
+          <label for="type">Tipo de operación</label>
+          <select id="type" name="type" required>
+            <option value="">Selecciona…</option>
+            <option value="PAYMENT">Pago</option>
+            <option value="TRANSFER">Transferencia</option>
+            <option value="CASH_OUT">Extracción</option>
+            <option value="DEBIT">Débito</option>
+            <option value="PAYMENT">Pago</option>
+          </select>
+          <small>¿Cómo se realizó la transacción?</small>
+        </div>
+
+        <div class="field">
+          <label for="amount">Monto</label>
+          <input id="amount" name="amount" type="number" step="0.01" placeholder="1000.00" required/>
+          <small>Importe en tu moneda local</small>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="oldbalanceOrg">Saldo antes (tú)</label>
+            <input id="oldbalanceOrg" name="oldbalanceOrg" type="number" step="0.01" placeholder="5000.00" required/>
+          </div>
+          <div class="field">
+            <label for="newbalanceOrig">Saldo después (tú)</label>
+            <input id="newbalanceOrig" name="newbalanceOrig" type="number" step="0.01" placeholder="4000.00" required/>
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="oldbalanceDest">Saldo antes (destino)</label>
+            <input id="oldbalanceDest" name="oldbalanceDest" type="number" step="0.01" placeholder="0.00" required/>
+          </div>
+          <div class="field">
+            <label for="newbalanceDest">Saldo después (destino)</label>
+            <input id="newbalanceDest" name="newbalanceDest" type="number" step="0.01" placeholder="1000.00" required/>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">¡Analizar fraude ahora!</button>
+      </form>
+
+      <div id="loading" class="hidden">  
+        <div class="spinner"></div>
+        <p>Escaneando riesgos…</p>
+      </div>
+
+      <div id="result"></div>
+      <div id="shap-container"></div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="dashboard-section">
+      <h2>Panel de Monitoreo</h2>
+      <div class="charts-row">
+        <canvas id="fraudRateChart"></canvas>
+        <canvas id="probChart"></canvas>
+      </div>
+      <div id="metrics-box"></div>
+    </section>
+
+    <!-- Batch scoring -->
+    <section class="form-section">
+      <h2>Análisis por lote</h2>
+      <input type="file" id="batch-file" accept=".csv">
+      <button id="batch-upload" class="btn-secondary">Subir y Analizar</button>
+      <div id="batch-result"></div>
+    </section>
+
+    <!-- Chat de Tickets -->
+    <section class="chat-section">
+      <h2>Chat de Análisis de Tickets</h2>
+      <div id="chat-box" class="chat-box"></div>
+      <div class="chat-input">
+        <input type="file" id="ticket-file-chat" accept="image/*,application/pdf">
+        <button id="send-ticket" class="btn-secondary">Enviar Ticket</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
