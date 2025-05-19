@@ -1,0 +1,15 @@
+# render.yaml
+# Configuración para desplegar tu FastAPI en Render (plan gratuito)
+
+services:
+  - type: web
+    name: fraudvision-api     # Nombre único de tu servicio en Render
+    env: python
+    region: oregon             # ajusta a tu región preferida (oregon, frankfurt, etc.)
+    plan: free                 # plan gratuito (dormirá tras inactividad)
+    branch: main               # rama donde está el render.yaml
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PORT
+        value: "10000"         # Render expone el puerto en PORT pero puedes mapearlo aquí
